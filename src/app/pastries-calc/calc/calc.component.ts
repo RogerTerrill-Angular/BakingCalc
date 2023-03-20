@@ -5,8 +5,7 @@ import {Pastry} from '../../shared/pastry.model';
 @Component({
   selector: 'app-calc',
   templateUrl: './calc.component.html',
-  styleUrls: ['./calc.component.sass'],
-  providers: [PastriesCalcService]
+  styleUrls: ['./calc.component.sass']
 })
 export class CalcComponent {
   title = 'Baking Calc';
@@ -19,15 +18,15 @@ export class CalcComponent {
     this.pastries = this.pastryCalcService.getPastries();
   }
 
-  incrementQty() {
+  incrementQty(name: string) {
     if(!this.pastries) return;
 
-    this.pastries[0].quantity++;
+    this.pastryCalcService.incrementQty(name);
   }
 
-  decrementQty() {
+  decrementQty(name: string) {
     if(!this.pastries) return;
 
-    this.pastries[0].quantity--;
+    this.pastryCalcService.decrementQty(name);
   }
 }

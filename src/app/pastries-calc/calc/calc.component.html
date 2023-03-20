@@ -3,12 +3,13 @@
   <div class="row" *ngFor="let pastry of pastries">
     <div class="col-4">
       <div class="btn-group d-flex" role="group">
-        <button class="btn btn-success  w-100" (click)="incrementQty()">+</button>
-        <button class="btn btn-danger btn-lg w-100" (click)="decrementQty()">-</button>
+        <button class="btn btn-success  w-100" (click)="incrementQty(pastry.name)">+</button>
+        <button class="btn btn-danger btn-lg w-100" (click)="decrementQty(pastry.name)">-</button>
       </div>
     </div>
-    <div class="col-6">{{ pastry.name }}</div>
-    <div class="col-1">{{ pastry.cost | currency:'USD' }}</div>
+    <div class="col-5">{{ pastry.name }}</div>
+    <div class="col-2">{{ pastry.cost | currency:'USD' }}</div>
     <div class="col-1">{{ pastry.quantity }}</div>
   </div>
+  <hr>
 </div>
