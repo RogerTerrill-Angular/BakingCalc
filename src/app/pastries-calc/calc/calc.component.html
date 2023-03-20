@@ -1,13 +1,14 @@
 <div class="container">
   <p>{{ title }}</p>
-  <div class="row">
+  <div class="row" *ngFor="let pastry of pastries">
     <div class="col-5">
       <div class="btn-group d-flex" role="group">
-        <button class="btn btn-success  w-100">+</button>
-        <button class="btn btn-danger btn-lg w-100">-</button>
+        <button class="btn btn-success  w-100" (click)="incrementQty()">+</button>
+        <button class="btn btn-danger btn-lg w-100" (click)="decrementQty()">-</button>
       </div>
     </div>
-    <div class="col-6">Butter Croissant</div>
-    <div class="col-1">1</div>
+    <div class="col-5">{{ pastry.name }}</div>
+    <div class="col-1">{{ pastry.cost | currency:'USD' }}</div>
+    <div class="col-1">{{ pastry.quantity }}</div>
   </div>
 </div>
